@@ -1,29 +1,29 @@
 name: Build and Test
 
-  on:
-    - push:
-      branches: [ main ]
-    - pull_request:
-      branches: [ main ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-  jobs:
-    build:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        matrix:
-          os: [macos-latest]
-          python-version: [3.6, 3.7, 3.8, 3.9]
-      name: Python ${{ matrix.python-version }}
-      steps:
-        - uses: actions/checkout@v2
-        - name: Setup python
-          uses: actions/setup-python@v2
-          with:
-            python-version: ${{ matrix.python-version }}
-        - name: Install in Development mode
-          run: |
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest]
+        python-version: [3.6, 3.7, 3.8, 3.9]
+    name: Python ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install in Development mode
+        run: |
           python -m pip install --upgrade pip
           pip install -r requirements.dev.txt
           pip install -e .
-        - name: Run tests
-          run: pytest
+      - name: Run tests
+        run: pytest
