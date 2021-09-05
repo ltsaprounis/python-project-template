@@ -1,0 +1,5 @@
+repos:
+- repo: https://github.com/pycqa/flake8
+  rev: '' # can also add a git hash or tag
+  hooks:
+  - id: flake8
