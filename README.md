@@ -16,7 +16,7 @@ A python project template for educational purposes
 ## Python venv
 *[insert description]*
 
-## requirements.txt
+## requirements.txt
 *[insert description]*
 
 ## flake8
@@ -34,16 +34,16 @@ A python project template for educational purposes
 ## Installing a package in Development mode
 *[insert description]*
 
-## .gitignore
+## .gitignore
 *[insert description]*
 
-## Pre-commit hooks
+## Pre-commit hooks
 *[insert description]*
 
-## Github Actions
+## Github Actions
 *[insert description]*
 
-## Licences
+## Licences
 *[insert description]*
 
 ## TO-DOs:
