@@ -1,6 +1,7 @@
-    """
-    An example module
-    """
+"""
+An example module
+"""
+
 
 def example_function(a: int) -> int:
     """
