@@ -13,7 +13,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../examplepackage"))
+sys.path.insert(0, os.path.abspath("../.."))
 
 
 # -- Project information -----------------------------------------------------
@@ -34,14 +34,14 @@ release = "0.0"
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
-    "numpydoc",
+    # "numpydoc",
     "sphinx.ext.intersphinx",
-    "sphinx.ext.linkcode",  # link to GitHub source code via linkcode_resolve()
+    # "sphinx.ext.linkcode", # link to GitHub sourcecode via linkcode_resolve()
     # "nbsphinx",  # integrates example notebooks
-    "sphinx_gallery.load_style",
-    "myst_parser",
-    "sphinx_panels",
-    "sphinx_issues",
+    # "sphinx_gallery.load_style",
+    # "myst_parser",
+    # "sphinx_panels",
+    # "sphinx_issues",
 ]
 
 # Add any paths that contain templates here, relative to this directory.

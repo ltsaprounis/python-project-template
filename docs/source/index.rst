@@ -10,11 +10,22 @@ Welcome to exampleproject's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   docs/examplepackage
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+examplemodule
+=============
+
+.. automodule:: examplepackage.examplemodule
+   :members:
+
+
+badmodule
+=============
+
+.. automodule:: examplepackage.badmodule
+   :members:

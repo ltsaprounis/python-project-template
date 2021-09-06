@@ -1,3 +1,7 @@
+"""
+A module that fails the tests
+"""
+
 long_string = "aaaaaaaaa"
 
 
