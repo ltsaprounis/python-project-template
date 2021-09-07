@@ -1,5 +1,5 @@
-from badmodule import bad_function
+from examplepackage.badmodule import bad_function
 
 
-def test_ad_function():
-    assert bad_function(1) == 2
+def test_bad_function():
+    assert bad_function(1) == 1
