@@ -2,7 +2,7 @@
 A module that fails the tests
 """
 
-long_string = "aaaaaaaaa"
+long_string = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 
 def bad_function(a):
