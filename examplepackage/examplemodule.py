@@ -2,7 +2,7 @@
 
 
 def example_function(a: int) -> int:
-    """Function that takes an integer as input and return it's square
+    """Takes an integer as input and return it's square
 
     Parameters
     ----------
