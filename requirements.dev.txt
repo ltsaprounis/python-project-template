@@ -1,4 +1,5 @@
 flake8
 black
 pytest
+pydocstyle
 sphinx

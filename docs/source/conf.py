@@ -34,15 +34,12 @@ release = "0.0"
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
-    # "numpydoc",
+    "sphinx.ext.napoleon",
     "sphinx.ext.intersphinx",
-    # "sphinx.ext.linkcode", # link to GitHub sourcecode via linkcode_resolve()
-    # "nbsphinx",  # integrates example notebooks
-    # "sphinx_gallery.load_style",
-    # "myst_parser",
-    # "sphinx_panels",
-    # "sphinx_issues",
 ]
+
+# Napoleon settings
+napoleon_numpy_docstring = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
