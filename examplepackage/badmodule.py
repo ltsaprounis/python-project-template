@@ -1,18 +1,19 @@
-"""
-A module that fails the tests
-"""
+"""A module that fails the tests"""
 
-long_string = "aaaaaaaaa"
+long_string = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 
-def bad_function(a):
-    """
-    A function that returns a + 1
+def bad_function(a: int) -> int:
+    """Return input + 2
 
-    Args:
-        a (int): input integer
+    Parameters
+    ----------
+    a : int
+        input integer
 
-    Returns:
-        [int]: output integer
+    Returns
+    -------
+    int
+        input + 2
     """
     return a + 2
