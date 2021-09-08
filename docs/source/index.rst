@@ -17,6 +17,9 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. automodule:: examplepackage
+   :members:
+
 examplemodule
 =============
 

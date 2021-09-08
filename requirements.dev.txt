@@ -3,3 +3,4 @@ black
 pytest
 pydocstyle
 sphinx
+sphinx_rtd_theme
