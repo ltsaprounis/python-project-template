@@ -14,7 +14,9 @@ A python project template for educational purposes
 `pip install -e .`
 
 ## Python venv
-*[insert description]*
+venv stands for virtual environment and is part of the python standard library (i.e. you don't have to install it).  
+The command `python -m venv .venv` creates a directory call .venv.  
+You can activate the virtual environment with `source .venv/bin/activate`. 
 
 ## requirements.txt
 *[insert description]*
