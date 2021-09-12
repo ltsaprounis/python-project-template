@@ -73,6 +73,7 @@ black makes sure the flake8 checks pass by autoformatting all the .py files.
 Quotting the the [black documentation](https://black.readthedocs.io/en/stable/?badge=stable) directly:  
 *"Black makes code review faster by producing the smallest diffs possible. Blackened code looks the same regardless of the project you’re reading. Formatting becomes transparent after a while and you can focus on the content instead."*
 
+Black is part of the requirements.dev.txt file and can be installed with pip.
 To format a directory with black run the terminal command:  
 `black examplepackage` or file.py etc. 
 
@@ -83,11 +84,24 @@ Some IDEs have format on save features and can be configured to use black:
 
 ## pydocstyle
 [pydocstyle](http://www.pydocstyle.org/en/stable/) is a static analysis tool for checking compliance with Python docstring conventions.
-By using pydocstyle we make sure that all modules and functions have consistent and good documentation. 
+By using pydocstyle we make sure that all modules and functions have consistent and good documentation.  
+
+pydocstyle is part of the requirements.dev.txt file and can be installed with pip.
+To run a pydocstyle check you simply execute the terminal command: 
+`pydocstyle examplepackage` *or any other dir that contains python files* 
+
+You can configure pydocstyle by adding a section for it in the [setup.cfg](setup.cfg) file. For this template we're using the numpy documentation convention and we're choosing to ignore some specific standards (e.g. D400 - docstring should be in imperative mood)
 
 ## pytest
-*[insert description]*
+Quotting the the [pytest documentation](https://docs.pytest.org/en/6.2.x/index.html) directly:
+*"The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries."*
 
+The tests for the package live in the [examplepackage/tests](examplepackage/tests) directory. Files in the main directory and its subdirectories that start with test_ and end with .py are recognised by pytest as test containing files (more rules for discovery [here](https://docs.pytest.org/en/6.2.x/goodpractices.html#conventions-for-python-test-discovery)).
+
+pytest is part of the requirements.dev.txt file and can be installed with pip.
+To run a pytest check you simply execute the terminal command: 
+`pytest examplepackage` *or any other dir that contains python files* 
+ 
 ## Sphinx documentation
 [Sphinx](https://www.sphinx-doc.org/en/master/) is a tool that makes it easy to create intelligent and beautiful documentation.
 The [docs/](docs) diretory is where the configuration for sphinx lives. The dependencies for the docs are in [docs/requiremetns.txt](docs/requiremetns.txt).  
@@ -110,10 +124,41 @@ The build directory that contains the html version of the docs is in the .gitign
 Sphinx has many functionalities so for more details read the official documentation. 
 
 ## setup.cfg
-*[insert description]*
+[setup.cfg](setup.cfg) has many roles, for this template we're using it to configure things like flake8 and pydocstyle.  
+
+example syntax: 
+```python
+[flake8]
+# inline with Black code formatter
+max-line-length = 88
+```
+
+More details:  
+* https://docs.python.org/3/distutils/configfile.html
+* https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html
 
 ## setup.py
-*[insert description]*
+[setup.py](setup.py) is what makes the package here pip-installable. We also add the package dependencies there (e.g. pandas==1.0). 
+Here is the a simple setup.py:  
+```python
+from setuptools import setup, find_packages
+
+setup(
+    name="examplepackage",
+    version="x.x",
+    packages=find_packages(),
+    description="package description",
+    author="author name",
+    install_requires=[
+        "numpy>=1.0",
+        "pandas==1.0",
+    ],
+)
+```
+
+More details on the setupscript: 
+* https://docs.python.org/3/distutils/setupscript.html
+* https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html
 
 ## Installing a package in Development mode
 `pip install -e .` or `pip install --editable .` installs the package in editable (development) mode. 
@@ -125,8 +170,7 @@ Usefull links:
 ## .gitignore
 The title is pretty self explanatory.  
 
-.gitignore is a file where you can add files and directories that you want git to ignore. The [.gitignore](.gitignore) in this template has the typical content.   
-e.g. .venv, the directory that contains the python virtual environment, should not be push to github and is in .gitignore. 
+.gitignore is a file where you can add files and directories that you want git to ignore. The [.gitignore](.gitignore) in this template has the typical content. For example .venv, the directory that contains the python virtual environment, should not be push to github and is in .gitignore. 
 
 ## Github Actions
 From the official https://github.com/features/actions page:  
@@ -138,6 +182,12 @@ This runs the following actions for every pull-request and every push to merge:
 2. docs-quality: pydocstyle
 3. build and test (with pytest) for all the combinations of the chosen operating systems and python versions. 
 e.g. macos-latest and python 3.7, 3.8 
+
+With this configuration, reviewers can instantly spot whether the code meets the minimum standards and passes the tests:
+![image](https://user-images.githubusercontent.com/64217214/133000246-0239d1d5-eb8c-49d6-9479-ad7db96d9d36.png)
+
+Github Actions and Azure pipelines have many similarities, read more here:  
+https://docs.microsoft.com/en-us/dotnet/architecture/devops-for-aspnet-developers/actions-vs-pipelines
 
 ## Licences
 Details about the mainstream OSS (Open source software) licences can be found here:  
