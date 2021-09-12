@@ -87,16 +87,22 @@ Some IDEs have format on save features and can be configured to use black:
 *[insert description]*
 
 ## .gitignore
-*[insert description]*
+The title is pretty self explanatory.
+.gitignore is a file where you can add files and directories that you want git to ignore.
+The [.gitignore](.gitignore) has the typical content e.g. .venv, the directory that contains the python virtual environment, should not be push to github and is in .gitignore. 
 
 ## Github Actions
 *[insert description]*
 
 ## Licences
-*[insert description]*
+Details about the mainstream OSS (Open source software) licences can be found here:  
+https://opensource.org  
+
+Wikipedia has nice/comprehensive comparison table here:  
+https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licences
 
 ## TO-DOs:
 - [ ] Descriptions for each component
 - [X] Add documentation using sphynx
-- [ ] Add branch protection rules
-- [ ] Add a Makefile for ease of use
+- [ ] Add branch protection rules (only in PRO and Enterprise)
+- [ ] Add a Makefile for ease of use (make install; make test; make lint; make env?)
