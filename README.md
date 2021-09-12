@@ -43,7 +43,17 @@ Alternatives to using requirements.txt files are conda enviroment yaml files (if
 https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 
 ## Pre-commit hooks
-*[insert description]*
+[Git hooks](https://git-scm.com/docs/githooks) are programs you can place in a hooks directory to trigger actions at certain points in git’s execution. 
+[Pre-commit](https://pre-commit.com/) is a handy tool that manages the installation and execution of any hook written in any language before every commit.  
+
+We can configure pre-commit hooks in the [.pre-commit-config.yaml](.pre-commit-config.yaml) file. For this template we check the linting with *flake8* and the docs with *pydocstyle*. And code cannot be committed unless it passes those checks.  
+
+To install pre-commit: 
+1. `pip install pre-commit`
+2. with your venv activated `pre-commit install`
+
+To bypass the pre-commit checks you can commit your changes with the --no-verify option.  
+`git commmit -m "description" --no-verify`
 
 ## flake8
 flake8 checks if the code is uggly according to [PEP8](https://www.python.org/dev/peps/pep-0008/).  
@@ -72,10 +82,32 @@ Some IDEs have format on save features and can be configured to use black:
 * Visual studio code: https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0
 
 ## pydocstyle
-*[insert description]*
+[pydocstyle](http://www.pydocstyle.org/en/stable/) is a static analysis tool for checking compliance with Python docstring conventions.
+By using pydocstyle we make sure that all modules and functions have consistent and good documentation. 
 
 ## pytest
 *[insert description]*
+
+## Sphinx documentation
+[Sphinx](https://www.sphinx-doc.org/en/master/) is a tool that makes it easy to create intelligent and beautiful documentation.
+The [docs/](docs) diretory is where the configuration for sphinx lives. The dependencies for the docs are in [docs/requiremetns.txt](docs/requiremetns.txt).  
+To build the documentation run the following: 
+1. `cd docs` *to go to the docs directory*
+2. `make html` *to make the html version of the docs* 
+
+Sphinx has the automodule functionality that creates the documetation automatically from the docstrings for each module and function. 
+If you add a new module and you want to generate the documentation automatically, you'll need to add the following test in [index.rst](docs/source/index.rst):
+```
+newmodule
+=============
+
+.. automodule:: examplepackage.newmodule
+   :members:
+```
+
+The build directory that contains the html version of the docs is in the .gitignore and therefore not in the github repo. 
+
+Sphinx has many functionalities so for more details read the official documentation. 
 
 ## setup.cfg
 *[insert description]*
@@ -84,15 +116,28 @@ Some IDEs have format on save features and can be configured to use black:
 *[insert description]*
 
 ## Installing a package in Development mode
-*[insert description]*
+`pip install -e .` or `pip install --editable .` installs the package in editable (development) mode. 
+This is essential for development because the changes you make in the code are directly applied in the installed package without the need for re-installation.  
+Usefull links:
+* https://packaging.python.org/guides/distributing-packages-using-setuptools/#working-in-development-mode
+* https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html#development-mode
 
 ## .gitignore
-The title is pretty self explanatory.
-.gitignore is a file where you can add files and directories that you want git to ignore.
-The [.gitignore](.gitignore) has the typical content e.g. .venv, the directory that contains the python virtual environment, should not be push to github and is in .gitignore. 
+The title is pretty self explanatory.  
+
+.gitignore is a file where you can add files and directories that you want git to ignore. The [.gitignore](.gitignore) in this template has the typical content.   
+e.g. .venv, the directory that contains the python virtual environment, should not be push to github and is in .gitignore. 
 
 ## Github Actions
-*[insert description]*
+From the official https://github.com/features/actions page:  
+*"GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want."*
+
+Github actions are configured in yaml files in the [.github/workflows](.github/workflows) directory. For this template we have a single file [.github/workflows](.github/workflows/buildtest.yml).  
+This runs the following actions for every pull-request and every push to merge: 
+1. code-quality: flake8
+2. docs-quality: pydocstyle
+3. build and test (with pytest) for all the combinations of the chosen operating systems and python versions. 
+e.g. macos-latest and python 3.7, 3.8 
 
 ## Licences
 Details about the mainstream OSS (Open source software) licences can be found here:  
@@ -101,8 +146,14 @@ https://opensource.org
 Wikipedia has nice/comprehensive comparison table here:  
 https://en.wikipedia.org/wiki/Comparison_of_free_and_open-source_software_licences
 
+## Coding patterns
+Some resources for coding patterns and API design: 
+* ["Designing Machine Learning Toolboxes: Concepts, Principles and Patterns"](https://arxiv.org/abs/2101.04938)   
+*Franz J. Király, Markus Löning, Anthony Blaom, Ahmed Guecioueur, Raphael Sonabend*
+* https://refactoring.guru/design-patterns/python
+
 ## TO-DOs:
 - [ ] Descriptions for each component
-- [X] Add documentation using sphynx
+- [X] Add documentation using sphinx
 - [ ] Add branch protection rules (only in PRO and Enterprise)
 - [ ] Add a Makefile for ease of use (make install; make test; make lint; make env?)
