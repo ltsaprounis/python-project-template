@@ -81,6 +81,7 @@ Black (like flake8) is configurable but through a .toml file (not setup.cfg) tha
 
 Some IDEs have format on save features and can be configured to use black:
 * Visual studio code: https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0
+* Pycharm: https://www.jetbrains.com/help/pycharm/reformat-and-rearrange-code.html
 
 ## pydocstyle
 [pydocstyle](http://www.pydocstyle.org/en/stable/) is a static analysis tool for checking compliance with Python docstring conventions.
