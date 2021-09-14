@@ -13,6 +13,11 @@ A python project template for educational purposes
 5. Install the package in development mode:  
 `pip install -e .`
 
+OR
+
+1. `make environment`
+2. `source .venv/bin/activate`
+
 ## Python venv
 **venv** stands for virtual environment and is part of the python standard library (i.e. you don't have to install it).
 Python virtual environments' role is to create an isolated python environment for each project so that there are no dependency issues etc. from conflicting project requirements (e.g. Project A need pandas 1.0 and Project B needs pandas 1.1).  
@@ -178,6 +183,41 @@ Usefull links:
 The title is pretty self explanatory.  
 
 .gitignore is a file where you can add files and directories that you want git to ignore. The [.gitignore](.gitignore) in this template has the typical content. For example .venv, the directory that contains the python virtual environment, should not be push to github and is in .gitignore. 
+
+## Makefile
+The [Makefile](Makefile) makes life a bit more simple by having some of the necessary commands ready to go.
+Available commands for this template are: 
+1. `make environment`, equivalent to:
+ ```
+ python -m venv .venv
+ source .venv/bin/activate
+ pip install -r requirements.dev.txt
+ pip install -e .
+ python -m ipykernel install --name=examplepackage
+ jupyter kernelspec list
+ pre-commit install
+```
+2. `make clean`, equivalent to: 
+```
+echo "> Removing virtual environment"
+rm -r .venv
+echo "> Uninstalling from jupyter"
+jupyter kernelspec uninstall examplepackage
+```
+3. `make install`, equivalent to:
+```
+pip install -r requirements.dev.txt
+pip install -e .
+```
+4. `make test`, equivalent to:
+```
+pytest examplepackage
+```
+5. `make lint`, equivalent to:
+```
+flake8 examplepackage
+pydocstyle examplepackage
+```
 
 ## Github Actions
 From the official https://github.com/features/actions page:  
