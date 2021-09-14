@@ -93,6 +93,12 @@ To run a pydocstyle check you simply execute the terminal command:
 
 You can configure pydocstyle by adding a section for it in the [setup.cfg](setup.cfg) file. For this template we're using the numpy documentation convention and we're choosing to ignore some specific standards (e.g. D400 - docstring should be in imperative mood)
 
+## nbstripout
+[nbstripout](https://github.com/kynan/nbstripout) strips out output from Jupyter notebooks
+Here we're using it as a pre-commit hook and it's configured in the .pre-commit-config.yaml  
+
+Here is a video showing the main functionalities -> https://www.youtube.com/watch?v=BEMP4xacrVc
+
 ## pytest
 Quotting the the [pytest documentation](https://docs.pytest.org/en/6.2.x/index.html) directly:
 *"The pytest framework makes it easy to write small tests, yet scales to support complex functional testing for applications and libraries."*
