@@ -250,7 +250,7 @@ Some resources for coding patterns and API design:
 * https://refactoring.guru/design-patterns/python
 
 ## TO-DOs:
-- [ ] Descriptions for each component
+- [X] Descriptions for each component
 - [X] Add documentation using sphinx
 - [ ] Add branch protection rules (only in PRO and Enterprise)
-- [ ] Add a Makefile for ease of use (make install; make test; make lint; make env?)
+- [X] Add a Makefile for ease of use (make install; make test; make lint; make env?)
