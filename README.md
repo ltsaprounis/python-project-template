@@ -1,5 +1,9 @@
 # python-project-template
-A python project template for educational purposes
+A python project template for educational purposes.
+
+This project serves 2 purposes:
+1. To be used as a base template for python projects
+2. To help people understand the testing, linting, CI etc. python stack by **cloning/forking it and breaking it.**
 
 ## Quickstart
 1. Create a python virtual environment:  
