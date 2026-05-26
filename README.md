@@ -1,4 +1,7 @@
 # python-project-template
+
+**⚠️ This template is now very old and doesn't represent a modern python project.** 
+
 A python project template for educational purposes.
 
 This project serves 2 purposes:
